@@ -1,0 +1,47 @@
+{"mentorship":
+    [
+        {
+            "name": "Jeffrey Xing",
+            "description": "Music and Composition Undergraduate at UCSD",
+            "project": "Computational Neuroscience/Machine Learning",
+            "start": 2020
+        },
+        {
+            "name": "Mingxuan Zhang",
+            "description": "Computer Science Post-Bac at UCSD",
+            "project": "Computational Neuroscience/Machine Learning",
+            "start": 2019
+        },
+        {
+            "name": "Meixuan Jiang",
+            "description": "Computer Science Undergraduate at UCSD",
+            "project": "Machine Learning/NLP",
+            "start": 2019
+        },
+        {
+            "name": "Yijia Yan",
+            "description": "Computer Science Undergraduate at UCSD",
+            "project": "Machine Learning/NLP",
+            "start": 2019
+        },
+        {
+            "name": "Jimmy Lozono",
+            "description": "Cognitive Science Undergraduate at UCSD",
+            "project": "Songbird behavioral metrics",
+            "start": 2019
+        },
+        {
+            "name": "Darvesh Gorhe",
+            "description": "Neuroscience Undergraduate at UCSD",
+            "project": "Songbird neurobiology",
+            "start": 2016,
+            "end": 2018
+        },
+        {
+            "name": "Hector Ponce",
+            "description": "Neuroscience Undergraduate at UCSD",
+            "project": "Songbird neurobiology",
+            "start": 2017
+        }
+    ]
+}

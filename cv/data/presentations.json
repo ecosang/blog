@@ -1,0 +1,46 @@
+{"presentations":
+    [
+        {
+            "authors": "Tim Sainburg, Anna Mai, and Timothy Q. Gentner",
+            "title": "Long-range sequential dependencies precede syntactically-rich vocalizations in humans",
+            "venue": "Society for the Neurobiology of Language",
+            "month": 10,
+            "url":"", 
+            "doi":"",
+            "year": 2020
+        },
+        {
+            "authors": "Tim Sainburg, Anna Mai, and Timothy Q. Gentner",
+            "title": "Long-range sequential dependencies precede syntactically-rich vocalizations in humans",
+            "venue": "Evolang",
+            "month": 4,
+            "url":"http://brussels.evolang.org/proceedings/paper.html?nr=157", 
+            "doi":"10.17617/2.3190925",
+            "year": 2020
+        },
+        {
+            "authors": "Tim Sainburg, Marvin Thielk, and Timothy Q. Gentner",
+            "title": "Generative modelling for birdsong: learned acoustic spaces for generating stimuli, labelling syllables, and visualizing sequences",
+            "venue": "Birdsong (SfN Satellite)",
+            "month": 11,
+            "url":"https://www.youtube.com/watch?v=0T2UU8-NCbM", 
+            "year": 2018
+        },
+        {
+            "authors": "Tim Sainburg, Marvin Thielk, and Timothy Q. Gentner",
+            "title": "Learned context dependent categorical perception in a songbird",
+            "venue": "Computational Cognitive Neuroscience (CCN)",
+            "url":"https://www.youtube.com/watch?v=XAU-CKGback", 
+            "month": 9,
+            "year": 2018
+        },
+        {
+            "authors": "Tim Sainburg and Timothy Q. Gentner",
+            "title": "Analyzing birdsong with neural networks",
+            "venue": "SSC Pacific Workshop on Naval Applications of Machine Learning",
+            "month": 1,
+            "year": 2016
+        }
+
+    ]
+}
