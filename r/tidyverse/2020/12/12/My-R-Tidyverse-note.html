@@ -100,7 +100,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      3 min read
+      5 min read
     
 </span></p>
 
@@ -151,6 +151,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#slicing">slicing </a></li>
 <li class="toc-entry toc-h2"><a href="#transpose-of-dataframe">transpose of dataframe </a></li>
 <li class="toc-entry toc-h2"><a href="#select-columns-by-conditions">select columns by conditions </a></li>
+<li class="toc-entry toc-h2"><a href="#rolling-joins-through-data.table">rolling joins through data.table </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h1"><a href="#purrr">purrr </a></li>
@@ -173,6 +174,7 @@ window.onload = wrap_img;
 <div class=" highlight hl-r"><pre><span></span><span class="nf">suppressPackageStartupMessages</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">))</span>
 <span class="nf">suppressPackageStartupMessages</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="n">purrr</span><span class="p">))</span>
 <span class="nf">suppressPackageStartupMessages</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="n">lubridate</span><span class="p">))</span>
+<span class="nf">suppressPackageStartupMessages</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="n">data.table</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -1084,6 +1086,331 @@ window.onload = wrap_img;
 	<tr>
 <td>1</td>
 <td>3</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="rolling-joins-through-data.table">
+<a class="anchor" href="#rolling-joins-through-data.table" aria-hidden="true"><span class="octicon octicon-link"></span></a>rolling joins through data.table<a class="anchor-link" href="#rolling-joins-through-data.table"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">ecobee_changes</span> <span class="o">&lt;-</span> <span class="nf">data.table</span><span class="p">(</span>
+  <span class="n">change_id</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">"c1"</span><span class="p">,</span> <span class="s">"c2"</span><span class="p">,</span> <span class="s">"c3"</span><span class="p">,</span> <span class="s">"c4"</span><span class="p">),</span>
+  <span class="n">change_time</span> <span class="o">=</span> <span class="nf">ymd_hms</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">"2020-11-10 15:05:00"</span><span class="p">,</span> <span class="s">"2020-11-10 16:15:00"</span><span class="p">,</span> <span class="s">"2020-11-10 16:20:00"</span><span class="p">,</span> <span class="s">"2020-11-10 17:30:00"</span><span class="p">))</span>
+<span class="p">)</span>
+
+<span class="n">interactions</span> <span class="o">&lt;-</span> <span class="nf">data.table</span><span class="p">(</span>
+  <span class="n">interaction_id</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">"i1"</span><span class="p">,</span><span class="s">"i2"</span><span class="p">,</span><span class="s">"i3"</span><span class="p">),</span>
+  <span class="n">interaction_time</span> <span class="o">=</span> <span class="nf">ymd_hms</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">"2020-11-10 16:17:30"</span><span class="p">,</span> <span class="s">"2020-11-10 16:19:25"</span><span class="p">,</span>  <span class="s">"2020-11-10 17:31:30"</span><span class="p">))</span>
+<span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">ecobee_changes</span><span class="p">[,</span> <span class="n">action_time</span> <span class="o">:=</span> <span class="n">change_time</span><span class="p">]</span>
+<span class="n">interactions</span><span class="p">[,</span> <span class="n">action_time</span> <span class="o">:=</span> <span class="n">interaction_time</span><span class="p">]</span>
+
+<span class="nf">setkey</span><span class="p">(</span><span class="n">ecobee_changes</span><span class="p">,</span> <span class="s">"action_time"</span><span class="p">)</span>
+<span class="nf">setkey</span><span class="p">(</span><span class="n">interactions</span><span class="p">,</span> <span class="s">"action_time"</span><span class="p">)</span>
+
+
+<span class="n">out</span><span class="o">=</span><span class="nf">as_tibble</span><span class="p">(</span><span class="n">ecobee_changes</span><span class="p">)</span><span class="o">%&gt;%</span><span class="nf">select</span><span class="p">(</span><span class="o">-</span><span class="n">action_time</span><span class="p">)</span><span class="o">%&gt;%</span>
+  <span class="nf">left_join</span><span class="p">(</span><span class="nf">as_tibble</span><span class="p">(</span><span class="n">ecobee_changes</span><span class="p">[</span><span class="n">interactions</span><span class="p">,</span> <span class="n">roll</span> <span class="o">=</span> <span class="s">"nearest"</span><span class="p">]),</span><span class="n">on</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">"change_time"</span><span class="p">,</span><span class="s">"change_id"</span><span class="p">))</span>
+
+<span class="n">out</span>
+<span class="c1">#interactions[ecobee_changes, roll = "nearest"]%&gt;%as_tibble()%&gt;%filter(distinct())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Joining, by = c("change_id", "change_time")
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<thead><tr>
+<th scope="col">change_id</th>
+<th scope="col">change_time</th>
+<th scope="col">action_time</th>
+<th scope="col">interaction_id</th>
+<th scope="col">interaction_time</th>
+</tr></thead>
+<tbody>
+	<tr>
+<td>c1                 </td>
+<td>2020-11-10 15:05:00</td>
+<td>NA                 </td>
+<td>NA                 </td>
+<td>NA                 </td>
+</tr>
+	<tr>
+<td>c2                 </td>
+<td>2020-11-10 16:15:00</td>
+<td>2020-11-10 16:17:30</td>
+<td>i1                 </td>
+<td>2020-11-10 16:17:30</td>
+</tr>
+	<tr>
+<td>c3                 </td>
+<td>2020-11-10 16:20:00</td>
+<td>2020-11-10 16:19:25</td>
+<td>i2                 </td>
+<td>2020-11-10 16:19:25</td>
+</tr>
+	<tr>
+<td>c4                 </td>
+<td>2020-11-10 17:30:00</td>
+<td>2020-11-10 17:31:30</td>
+<td>i3                 </td>
+<td>2020-11-10 17:31:30</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nf">data.table</span><span class="p">(</span>
+  <span class="n">eventid</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">),</span>
+  <span class="n">start</span>  <span class="o">=</span><span class="nf">mdy_hms</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">'10/1/2016 04:30:00'</span><span class="p">,</span><span class="s">'10/1/2016 18:02:00'</span><span class="p">,</span><span class="s">'10/2/2016 14:21:00'</span><span class="p">)),</span>
+  <span class="n">end</span>    <span class="o">=</span><span class="nf">mdy_hms</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">'10/1/2016 05:43:00'</span><span class="p">,</span><span class="s">'10/2/2016 01:23:00'</span><span class="p">,</span><span class="s">'10/4/2016 08:54:00'</span><span class="p">))</span>
+<span class="p">)</span>
+
+<span class="c1">#y is a data table with a list of all dates</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nf">data.table</span><span class="p">(</span>
+  <span class="n">date</span> <span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">'10/1/2016'</span><span class="p">,</span><span class="s">'10/2/2016'</span><span class="p">,</span><span class="s">'10/3/2016'</span><span class="p">,</span><span class="s">'10/4/2016'</span><span class="p">,</span><span class="s">'10/5/2016'</span><span class="p">,</span><span class="s">'10/6/2016'</span><span class="p">),</span>
+  <span class="n">start</span><span class="o">=</span><span class="nf">mdy_hms</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">'10/1/2016 00:00:00'</span><span class="p">,</span><span class="s">'10/2/2016 00:00:00'</span><span class="p">,</span><span class="s">'10/3/2016 00:00:00'</span><span class="p">,</span><span class="s">'10/4/2016 00:00:00'</span><span class="p">,</span><span class="s">'10/5/2016 00:00:00'</span><span class="p">,</span><span class="s">'10/6/2016 00:00:00'</span><span class="p">)),</span>
+  <span class="n">end</span>  <span class="o">=</span><span class="nf">mdy_hms</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">'10/1/2016 23:59:59'</span><span class="p">,</span><span class="s">'10/2/2016 23:59:59'</span><span class="p">,</span><span class="s">'10/3/2016 23:59:59'</span><span class="p">,</span><span class="s">'10/4/2016 23:59:59'</span><span class="p">,</span><span class="s">'10/5/2016 23:59:59'</span><span class="p">,</span><span class="s">'10/6/2016 23:59:59'</span><span class="p">))</span>
+  <span class="p">)</span>
+
+<span class="c1">#set the key on y to match with</span>
+<span class="nf">setkey</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="s">"start"</span><span class="p">,</span><span class="s">"end"</span><span class="p">)</span>
+
+<span class="c1">#use the foverlaps function to match</span>
+<span class="c1">#</span>
+<span class="c1">#note that eventid 1 matches one date only</span>
+<span class="c1">#          eventid 2 matches two dates</span>
+<span class="c1">#          eventid 3 matches three dates</span>
+<span class="c1">#</span>
+<span class="n">result</span> <span class="o">&lt;-</span> <span class="nf">foverlaps</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">type</span><span class="o">=</span><span class="s">"any"</span><span class="p">)</span>
+
+<span class="c1">#show results</span>
+<span class="n">x</span>
+<span class="n">y</span>
+
+<span class="n">result</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<thead><tr>
+<th scope="col">eventid</th>
+<th scope="col">start</th>
+<th scope="col">end</th>
+</tr></thead>
+<tbody>
+	<tr>
+<td>1                  </td>
+<td>2016-10-01 04:30:00</td>
+<td>2016-10-01 05:43:00</td>
+</tr>
+	<tr>
+<td>2                  </td>
+<td>2016-10-01 18:02:00</td>
+<td>2016-10-02 01:23:00</td>
+</tr>
+	<tr>
+<td>3                  </td>
+<td>2016-10-02 14:21:00</td>
+<td>2016-10-04 08:54:00</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<thead><tr>
+<th scope="col">date</th>
+<th scope="col">start</th>
+<th scope="col">end</th>
+</tr></thead>
+<tbody>
+	<tr>
+<td>10/1/2016          </td>
+<td>2016-10-01         </td>
+<td>2016-10-01 23:59:59</td>
+</tr>
+	<tr>
+<td>10/2/2016          </td>
+<td>2016-10-02         </td>
+<td>2016-10-02 23:59:59</td>
+</tr>
+	<tr>
+<td>10/3/2016          </td>
+<td>2016-10-03         </td>
+<td>2016-10-03 23:59:59</td>
+</tr>
+	<tr>
+<td>10/4/2016          </td>
+<td>2016-10-04         </td>
+<td>2016-10-04 23:59:59</td>
+</tr>
+	<tr>
+<td>10/5/2016          </td>
+<td>2016-10-05         </td>
+<td>2016-10-05 23:59:59</td>
+</tr>
+	<tr>
+<td>10/6/2016          </td>
+<td>2016-10-06         </td>
+<td>2016-10-06 23:59:59</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<thead><tr>
+<th scope="col">date</th>
+<th scope="col">start</th>
+<th scope="col">end</th>
+<th scope="col">eventid</th>
+<th scope="col">i.start</th>
+<th scope="col">i.end</th>
+</tr></thead>
+<tbody>
+	<tr>
+<td>10/1/2016          </td>
+<td>2016-10-01         </td>
+<td>2016-10-01 23:59:59</td>
+<td>1                  </td>
+<td>2016-10-01 04:30:00</td>
+<td>2016-10-01 05:43:00</td>
+</tr>
+	<tr>
+<td>10/1/2016          </td>
+<td>2016-10-01         </td>
+<td>2016-10-01 23:59:59</td>
+<td>2                  </td>
+<td>2016-10-01 18:02:00</td>
+<td>2016-10-02 01:23:00</td>
+</tr>
+	<tr>
+<td>10/2/2016          </td>
+<td>2016-10-02         </td>
+<td>2016-10-02 23:59:59</td>
+<td>2                  </td>
+<td>2016-10-01 18:02:00</td>
+<td>2016-10-02 01:23:00</td>
+</tr>
+	<tr>
+<td>10/2/2016          </td>
+<td>2016-10-02         </td>
+<td>2016-10-02 23:59:59</td>
+<td>3                  </td>
+<td>2016-10-02 14:21:00</td>
+<td>2016-10-04 08:54:00</td>
+</tr>
+	<tr>
+<td>10/3/2016          </td>
+<td>2016-10-03         </td>
+<td>2016-10-03 23:59:59</td>
+<td>3                  </td>
+<td>2016-10-02 14:21:00</td>
+<td>2016-10-04 08:54:00</td>
+</tr>
+	<tr>
+<td>10/4/2016          </td>
+<td>2016-10-04         </td>
+<td>2016-10-04 23:59:59</td>
+<td>3                  </td>
+<td>2016-10-02 14:21:00</td>
+<td>2016-10-04 08:54:00</td>
 </tr>
 </tbody>
 </table>
