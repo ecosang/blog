@@ -1,0 +1,33 @@
+[
+{
+    "id":"all",
+    "name": "Sociotechnical Systems to Enable Smart and Connected Energy-Aware Residential Communities (NSF No.1737591)",
+    "date": "Aug. 2016 - Present",
+    "place": "Herrick Lab., Purdue Univ., West Lafayette, IN",
+    "title": "Graduate Research Assistant",
+    "tech": [],
+    "bullet": [""
+	]
+},
+{
+    "id":"all",
+    "name": "Development of liquid desiccant and evaporative cooling assisted 100\\% outdoor air system (NRF of Korea, No.2012001927)",
+    "date": "Mar. 2014 - Feb. 2016",
+    "place": "BMES Lab., Hanyang Univ., Seoul, Korea",
+    "title": "Graduate Research Assistant",
+    "tech": [],
+    "bullet": ["Design and installation of heat exchanger test chamber",
+	"Develop numerical simulations and experiment of indirect evaporative cooler",
+	"Develop control simulations of liquid-desiccant and dew point cooling based 100\\% outdoor air system on BCVTB",
+	"Develop simplified model of PEM fuel cell based on experiment"]
+},
+{
+    "id":"all",
+    "name": "Development of energy efficient modular data center for PUE below 1.5 (KITECH, No. 10045236)",
+    "date": "Mar. 2013 - Feb. 2014",
+    "place": "BMES Lab., Hanyang Univ., Seoul, Korea",
+    "title": "Undergraduate Research Assistant",
+    "tech": [],
+    "bullet": ["Develop Energy simulation of various ecnomizers in a modular data center",
+	"Develop CFD simulations and experiments on a modular data center"]
+}]

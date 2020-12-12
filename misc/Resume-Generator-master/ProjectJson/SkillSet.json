@@ -1,0 +1,6 @@
+[{
+    "id":"all",
+    "Programming Language":["R","Python","Matlab","SQL","PLC","git"],
+	"Computating Library":["Pyro","Pytorch","Stan","Tidyverse"],
+	"Software":["Energyplus","Openstudio","BCVTB","ANSYS Fluent","TRNSYS"]
+}]

@@ -1,0 +1,27 @@
+[{
+    "id":"all",
+    "name": "Purdue University",
+    "date": "Aug. 2016 - Present",
+    "place": "West Lafayette, IN",
+    "title": "Ph.D. in Civil Engineering; Advisor: Prof. Panagiota Karava; GPA: 3.85/4.0",
+    "tech": ["Related Courses"],
+    "bullet":  ["Related Courses: Bayesian Data Analysis, Big Data Analytics, Uncertainty quantification"]
+},
+{
+    "id":"all",
+    "name": "Hanyang University",
+    "date": "Mar. 2014 - Feb. 2016",
+    "place": "Seoul, South Korea",
+    "title": "M.S. in Architectural Engineering; Advisor: Prof. Jae-weon Jeong; GPA: 4.0/4.0",
+    "tech": ["Related Courses"],
+    "bullet": ["Related Courses: Building Automation and Control System, Data Mining, Computational Fluid Mechanics"]
+},
+{
+    "id":"all",
+    "name": "Hanyang University",
+    "date": "Mar. 2007 - Feb. 2014",
+    "place": "Seoul, South Korea",
+    "title": "B.S. in Civil Engineering; GPA: 3.83/4.0 (SUMMA CUMLAUDE, 2nd rank out of 72)",
+    "tech": ["Related Courses"],
+    "bullet": ["Related Courses: Heat Transfer, HVAC System Design"]
+}]

@@ -1,0 +1,9 @@
+{
+    "filename":"sang_cv.tex",
+    "education":"all",
+	"researchexperience":"all",
+    "skillset":"all",
+	"publication":["Journal Papers","Conference Proceedings", "Presentations"],
+    "experience":"all",
+    "award":["Scholarship","Awards","Certifications"]
+}
