@@ -4,8 +4,10 @@ title: About Me
 permalink: /about/
 ---
 
-This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
+# Sang woo Ham
 
+My name is Sang woo Ham.
 
+# Curriculum vitae
 
-[^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
+Download at this [page](https://github.com/ecosang/blog/blob/master/misc/pdf/sang_cv.pdf)
