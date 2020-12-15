@@ -51,6 +51,22 @@
   
 
   
+      ,"page3": {
+          "title": "Research",
+          "content": "research page . test .",
+          "url": "https://ecosang.github.io/blog/research/",
+          "relUrl": "/research/",
+          "date": ""
+      }
+      
+  
+
+  
+  
+
+  
+
+  
   
 
   
@@ -59,18 +75,13 @@
   
 
   
-
-  
   
 
   
   
 
   
-  
-
-  
-      ,"page10": {
+      ,"page11": {
           "title": "",
           "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
           "url": "https://ecosang.github.io/blog/robots.txt",
