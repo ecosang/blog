@@ -6,7 +6,12 @@
     "place": "Herrick Lab., Purdue Univ., West Lafayette, IN",
     "title": "Graduate Research Assistant",
     "tech": [],
-    "bullet": [""
+    "bullet": ["Major assistant to write the proposal including literature review, illustration, and idea development",
+	"Procurement, installation, and prototyping of WiFi and web API based smart home devices (Smart thermostat, Power meter, Tablet, Amazon Echo device)",
+	"Design, documentation, and  of smart home database and application with software engineers",
+	"Development of Bayesian-based online heating and cooling energy prediction model for eco-feedback via visual/voice user-interactive devices",
+	"Development of Bayesian-based online building energy normalization model for normative comparison eco-feedback",
+	"Project management with multiple students, faculties, and field engineers"
 	]
 },
 {

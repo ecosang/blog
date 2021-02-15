@@ -22,7 +22,7 @@ def build(filename,js):
                     f.write(getEductionLatex(js["education"]))
                 elif "Research Experience" in l:
                     f.write(l)
-                    f.write(getExperience(js["researchexperience"]))
+                    f.write(getResearchExperience(js["researchexperience"]))
                 elif "Publications" in l:
                     f.write(l)
                     f.write(getPublicationLatex(js["publication"],False))
