@@ -1,0 +1,5 @@
+How to upgrade?
+https://github.com/fastai/fastpages#upgrading-fastpages
+
+For general things
+_pages

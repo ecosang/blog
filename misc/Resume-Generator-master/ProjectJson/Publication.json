@@ -6,7 +6,8 @@
         "title": "",
         "tech": [],
         "bullet": [
-			"\\textbf{Ham, S.-W.}, Karava, P., Bilionis, I., and Braun, J. (2020). A data-driven building energy normalization model for eco-feedback design in smart and connected multi-family residential buildings. Submitted to Journal of Building Performance Simulation.",
+			"\\textbf{Ham, S.-W.}, and Karava, P. (2021). A Scalable Building Modeling Approach using Probabilistic Deep learning. In-preparation.",
+            "\\textbf{Ham, S.-W.}, Karava, P., Bilionis, I., and Braun, J. (2020). A data-driven building energy normalization model for eco-feedback design in smart and connected multi-family residential buildings. Submitted to Journal of Building Performance Simulation.",
 			"\\textbf{Ham, S.-W.}, Karava, P., Bilionis, I., and Braun, J. (2020). Online model for unit-level heating and cooling energy use prediction in multi-family residential buildings for eco-feedback design. Submitted to Applied Energy.",
             "Kim, H.-J., \\textbf{Ham, S.-W.}, Yoon, D.-S., and Jeong, J.-W. (2017). Cooling performance measurement of two cross-flow indirect evaporative coolers in general and regenerative operation modes. \\textit{Applied Energy},  Vol.195, pp.268-277. \\href{https://doi.org/10.1016/j.apenergy.2017.03.053}{doi}",
 			"\\textbf{Ham, S.-W.}, and Jeong, J.-W. (2016). Dew point evaporative heat exchanger (DPHX): Design and performance analysis. \\textit{Energy}, Vol.101, pp.132-145. \\href{https://doi.org/10.1016/j.energy.2016.02.019}{doi}",
