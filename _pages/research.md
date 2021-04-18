@@ -111,7 +111,7 @@ permalink: /research/
 
 ---
 
-## Data Center Cooling(#data-center-cooling)
+## Data Center Cooling
 
 ![]({{ site.baseurl }}/images/data_center.png "Data center cooling experimental site")
 
