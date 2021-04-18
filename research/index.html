@@ -112,8 +112,12 @@ window.onload = wrap_img;
       <li><a href="#field-data-collection">Field Data Collection</a></li>
       <li><a href="#data-driven-building-energy-normalization">Data-driven Building Energy Normalization</a></li>
       <li><a href="#online-mdoel-for-unit-level-heating-and-cooling-energy-predicition">Online Model for Unit-level Heating and Cooling Energy Predicition</a></li>
+      <li><a href="#scalable-building-energy-model-using-probabilistic-deep-learning">Scalable Building Energy Model using Probabilistic Deep learning</a></li>
     </ul>
   </li>
+  <li><a href="#liquid-desiccant-and-dew-point-evaporative-cooling-based-100%-outdoor-air-system">Liquid-desiccant and dew point evaporative cooling based 100% outdoor air system</a></li>
+  <li><a href="#Indirect evaporative-cooler-modeling-and-test-chamber-design">Indirect Evaporative Cooler Modeling and Test Chamber Design</a></li>
+  <li><a href="#data-center-cooling">Data Center Cooling</a></li>
 </ul>
 
 <h2 id="timeline">Timeline</h2>
@@ -162,21 +166,78 @@ window.onload = wrap_img;
   <li>Normalized groups by considering inter-unit heat transfer and unobserved disturbances.</li>
   <li>Fair comparison of the impact of thermostat behavior on heating/cooling energy consumption.</li>
   <li>Online model update via Bayesian inference to be used for eco-feedback application.</li>
-  <li>Conference paper: <a href="https://docs.lib.purdue.edu/ihpbc/319/">PURDUE 2018</a></li>
+  <li>Conference paper: <a href="https://docs.lib.purdue.edu/ihpbc/319/">PURDUE 2018</a>.</li>
 </ul>
 
 <hr />
 
 <h3 id="online-model-for-unit-level-heating-and-cooling-energy-predicition">Online Model for Unit-level Heating and Cooling Energy Predicition</h3>
 
-<p>![](/blog/images/online_model.png “”)</p>
+<p><img src="/blog/images/online_model.png" alt="" title="Online model structure" /></p>
 
 <ul>
   <li>“Online building energy model to evaluate heating and cooling-related behavior changes for eco-feedback in a multifamily residential building.”</li>
   <li>Unit-level heating and cooling energy prediction model for actionable eco-feedback design a multi-family residential building.</li>
   <li>A single zone gray-box model from thermostat and heat pump power measurement only.</li>
   <li>Online parameter learning with state filtering to be used without a whole year dataset in Bayesian framework.</li>
-  <li>Conference paper: <a href="https://par.nsf.gov/servlets/purl/10134059">IBPSA 2019</a></li>
+  <li>Conference paper: <a href="https://par.nsf.gov/servlets/purl/10134059">IBPSA 2019</a>.</li>
+</ul>
+
+<hr />
+
+<h3 id="scalable-building-energy-model-using-probabilistic-deep-learning">Scalable Building Energy Model using Probabilistic Deep learning</h3>
+
+<p><img src="/blog/images/reslstm.png" alt="" title="Scalable model overview" /></p>
+
+<ul>
+  <li>“A Scalable Building Modeling Approach using Probabilistic Deep learning (tentative).”</li>
+  <li>A household-level heating and cooling energy prediction model using Deep neural network.</li>
+  <li>Overcoming the limitation of black-box model through Bayesian update with pre-trained model to be used any types of residential unit.</li>
+  <li>Generation of multiple simulated data (EnergyPlus) with stochastic noise (Python EnergyPlus plugin) through Eppy package.</li>
+  <li>Solving probabilistic deep learning model by using Pyro and Pytorch.</li>
+  <li>In preparation.</li>
+</ul>
+
+<hr />
+
+<h2 id="liquid-desiccant-and-dew-point-evaporative-cooling-based-100-outdoor-air-system">Liquid-desiccant and dew point evaporative cooling based 100% outdoor air system</h2>
+
+<p><img src="/blog/images/ldeos.png" alt="" title="LDEOS system overview" /></p>
+
+<ul>
+  <li>Annual energy simulation for liquid-desiccant and dew point evaporative cooling based 100% outdoor system.</li>
+  <li>Implementation of PI controller, empirical liquid desiccant and dew point evaporative cooling model in a BCVTB co-simulation framework with EnergyPlus to test a new control algorithm (variable air volume and temperature control).</li>
+  <li>Development of a data-driven empirical model of PEM fuel cell system to be used for LDEOS system as a cogeneration application.</li>
+  <li>Conference paper: <a href="https://www.techstreet.com/standards/st-16-c048-a-variable-volume-and-temperature-vvt-control-strategy-for-a-liquid-desiccant-and-dew-point-evaporative-cooler-assisted-100-outdoor-air-system-ldeos?product_id=1919925">ASHRAE 2016</a>.</li>
+  <li>Journal papers: <a href="https://www.sciencedirect.com/science/article/abs/pii/S0378778816300573">ENB 2016</a> <a href="https://www.sciencedirect.com/science/article/abs/pii/S0378778815302085">ENB 2015</a>.</li>
+</ul>
+
+<hr />
+
+<h2 id="indirect-evaporative-cooler-modeling-and-test-chamber-design">Indirect evaporative cooler modeling and test chamber design</h2>
+
+<p><img src="/blog/images/iec.png" alt="" title="IEC model and test chamber" /></p>
+
+<ul>
+  <li>Design of environmental chamber to test the performance of indirect evaporative cooler.</li>
+  <li>Installation of sensors and data collection platform on PLC-based SCADA machine including wet-bulb temperature, airflow chamber.</li>
+  <li>Design/installation of indirect evaporative cooler with a manufacturing company.</li>
+  <li>A numerical model of indirect evaporative cooler by using finite difference method to design the prototype.</li>
+  <li>Journal papers: <a href="https://www.sciencedirect.com/science/article/abs/pii/S0360544216300615">ENERGY 2016</a>, <a href="https://www.sciencedirect.com/science/article/abs/pii/S030626191730288X">APEN 2017</a></li>
+</ul>
+
+<hr />
+
+<h2 id="data-center-coolingdata-center-cooling">Data Center Cooling(#data-center-cooling)</h2>
+
+<p><img src="/blog/images/data_center.png" alt="" title="Data center cooling experimental site" /></p>
+
+<ul>
+  <li>Development various air-side economizers and their annual energy simulation model for data center cooling application.</li>
+  <li>Development of a simplified server model that can be used for data center cooling energy simulation.</li>
+  <li>Estimating the impact of air containment in a modular data center through one-to-one scale test bed experiment and CFD simulation.</li>
+  <li>Development of excel VBA-based tool to estimate rough annual energy consumption of data center cooling for practical use.</li>
+  <li>Journal papers: <a href="https://www.sciencedirect.com/science/article/abs/pii/S0306261914011167">APEN 2015</a>, <a href="https://www.sciencedirect.com/science/article/abs/pii/S1359431114011508">ATE 2015</a>, <a href="https://www.sciencedirect.com/science/article/abs/pii/S0378778814009049">ENB 2015</a>,  <a href="https://www.sciencedirect.com/science/article/abs/pii/S1359431115005268">ATE 2016</a>.</li>
 </ul>
 
 
