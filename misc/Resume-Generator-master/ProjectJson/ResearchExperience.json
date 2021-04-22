@@ -7,10 +7,9 @@
     "title": "Graduate Research Assistant",
     "tech": [],
     "bullet": ["Major assistant to write the proposal including literature review, illustration, and idea development",
-	"Procurement, installation, and prototyping of WiFi and web API based smart home devices (Smart thermostat, Power meter, Tablet, Amazon Echo device)",
-	"Design, documentation, and  of smart home database and application with software engineers",
-	"Development of Bayesian-based online heating and cooling energy prediction model for eco-feedback via visual/voice user-interactive devices",
-	"Development of Bayesian-based online building energy normalization model for normative comparison eco-feedback",
+	"Installation, and prototyping of WiFi-based smart home devices (Smart thermostat, Power meter, Tablet, Speaker)",
+	"Design, documentation, and of smart home database and application with software engineers",
+	"Development of Bayesian-based online heating and cooling energy prediction/energy normalization model for eco-feedback via visual/voice user-interactive devices",
 	"Project management with multiple students, faculties, and field engineers"
 	]
 },
@@ -33,6 +32,6 @@
     "place": "BMES Lab., Hanyang Univ., Seoul, Korea",
     "title": "Undergraduate Research Assistant",
     "tech": [],
-    "bullet": ["Develop Energy simulation of various ecnomizers in a modular data center",
+    "bullet": ["Develop Energy simulation of various economizers in a modular data center",
 	"Develop CFD simulations and experiments on a modular data center"]
 }]
