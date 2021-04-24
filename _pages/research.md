@@ -12,8 +12,8 @@ permalink: /research/
 	* [Data-driven Building Energy Normalization](#data-driven-building-energy-normalization)
 	* [Online Model for Unit-level Heating and Cooling Energy Predicition](#online-mdoel-for-unit-level-heating-and-cooling-energy-predicition)
 	* [Scalable Building Energy Model using Probabilistic Deep learning](#scalable-building-energy-model-using-probabilistic-deep-learning)
-- [Liquid-desiccant and dew point evaporative cooling based 100% outdoor air system](#liquid-desiccant-and-dew-point-evaporative-cooling-based-100%-outdoor-air-system)
-- [Indirect Evaporative Cooler Modeling and Test Chamber Design](#Indirect evaporative-cooler-modeling-and-test-chamber-design)
+- [Liquid desiccant and dew point evaporative cooling based 100% outdoor air system](#liquid-desiccant-and-dew-point-evaporative-cooling-based-100%-outdoor-air-system)
+- [Indirect Evaporative Cooler Modeling and Test Chamber Design](#indirect-evaporative-cooler-modeling-and-test-chamber-design)
 - [Data Center Cooling](#data-center-cooling)
 
 
@@ -87,7 +87,7 @@ permalink: /research/
 
 ---
 
-## Liquid-desiccant and dew point evaporative cooling based 100% outdoor air system
+## Liquid desiccant and dew point evaporative cooling based 100% outdoor air system
 
 ![]({{ site.baseurl }}/images/ldeos.png "LDEOS system overview")
 
