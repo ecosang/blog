@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://ecosang.github.io/blog/markdown/2020/01/14/test-markdown-post.html</loc>
-<lastmod>2020-01-14T00:00:00-06:00</lastmod>
-</url>
-<url>
-<loc>https://ecosang.github.io/blog/jupyter/2020/02/20/test.html</loc>
-<lastmod>2020-02-20T00:00:00-06:00</lastmod>
-</url>
-<url>
 <loc>https://ecosang.github.io/blog/r/tidyverse/2020/12/12/My-R-Tidyverse-note.html</loc>
 <lastmod>2020-12-12T00:00:00-06:00</lastmod>
 </url>
@@ -33,10 +25,10 @@
 </url>
 <url>
 <loc>https://ecosang.github.io/blog/misc/Resume-Generator-master/sang_cv.pdf</loc>
-<lastmod>2021-04-22T10:13:22-05:00</lastmod>
+<lastmod>2021-04-24T01:55:08-05:00</lastmod>
 </url>
 <url>
 <loc>https://ecosang.github.io/blog/misc/pdf/sang_cv.pdf</loc>
-<lastmod>2021-04-22T10:13:22-05:00</lastmod>
+<lastmod>2021-04-24T01:55:08-05:00</lastmod>
 </url>
 </urlset>

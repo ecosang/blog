@@ -1,0 +1,15 @@
+https://docs.anaconda.com/anaconda/user-guide/tasks/using-r-language/
+
+basically, R is installed within conda enviornment.
+YOu have r-base in conda list.
+You can install via anaconda navigator like
+https://docs.anaconda.com/anaconda/navigator/tutorials/r-lang/
+But, you can install 
+conda install r-base
+
+
+when IRkernel disappear  (or restart)
+https://github.com/IRkernel/IRkernel/issues/163
+
+conda config --add channels r
+conda install --yes r-irkernel
