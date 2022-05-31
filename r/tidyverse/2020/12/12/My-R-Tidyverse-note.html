@@ -1,0 +1,1985 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>My Tidyverse note | Sang’s website</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="My Tidyverse note" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Sang’s personal Tidyverse note" />
+<meta property="og:description" content="Sang’s personal Tidyverse note" />
+<link rel="canonical" href="https://ecosang.github.io/blog/r/tidyverse/2020/12/12/My-R-Tidyverse-note.html" />
+<meta property="og:url" content="https://ecosang.github.io/blog/r/tidyverse/2020/12/12/My-R-Tidyverse-note.html" />
+<meta property="og:site_name" content="Sang’s website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-12-12T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="My Tidyverse note" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2020-12-12T00:00:00-06:00","datePublished":"2020-12-12T00:00:00-06:00","description":"Sang’s personal Tidyverse note","headline":"My Tidyverse note","mainEntityOfPage":{"@type":"WebPage","@id":"https://ecosang.github.io/blog/r/tidyverse/2020/12/12/My-R-Tidyverse-note.html"},"url":"https://ecosang.github.io/blog/r/tidyverse/2020/12/12/My-R-Tidyverse-note.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://ecosang.github.io/blog/feed.xml" title="Sang's website" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Sang&#39;s website</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About Me</a><a class="page-link" href="/blog/research/">Research</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">My Tidyverse note</h1><p class="page-description">Sang's personal Tidyverse note</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-12-12T00:00:00-06:00" itemprop="datePublished">
+        Dec 12, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      5 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#R">R</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/blog/categories/#tidyverse">tidyverse</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/ecosang/blog/tree/master/_notebooks/2020-12-12-My-R-Tidyverse-note.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/blog/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/ecosang/blog/master?filepath=_notebooks%2F2020-12-12-My-R-Tidyverse-note.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/blog/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/ecosang/blog/blob/master/_notebooks/2020-12-12-My-R-Tidyverse-note.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/blog/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fecosang%2Fblog%2Fblob%2Fmaster%2F_notebooks%2F2020-12-12-My-R-Tidyverse-note.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/blog/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#dplyr">dplyr </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#rleid">rleid </a></li>
+<li class="toc-entry toc-h2"><a href="#rleid-with-index">rleid with index </a></li>
+<li class="toc-entry toc-h2"><a href="#find-repeated-numbers">find repeated numbers </a></li>
+<li class="toc-entry toc-h2"><a href="#impute-n-numbers-of-consecutive-NAs">impute n numbers of consecutive NAs </a></li>
+<li class="toc-entry toc-h2"><a href="#slicing">slicing </a></li>
+<li class="toc-entry toc-h2"><a href="#transpose-of-dataframe">transpose of dataframe </a></li>
+<li class="toc-entry toc-h2"><a href="#select-columns-by-conditions">select columns by conditions </a></li>
+<li class="toc-entry toc-h2"><a href="#rolling-joins-through-data.table">rolling joins through data.table </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#purrr">purrr </a></li>
+<li class="toc-entry toc-h1"><a href="#Lubridate">Lubridate </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#Find-time-difference">Find time difference </a></li>
+<li class="toc-entry toc-h2"><a href="#Create-a-time-grid">Create a time-grid </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-12-12-My-R-Tidyverse-note.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">suppressPackageStartupMessages</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">))</span>
+<span class="nf">suppressPackageStartupMessages</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="n">purrr</span><span class="p">))</span>
+<span class="nf">suppressPackageStartupMessages</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="n">lubridate</span><span class="p">))</span>
+<span class="nf">suppressPackageStartupMessages</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="n">data.table</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="dplyr">
+<a class="anchor" href="#dplyr" aria-hidden="true"><span class="octicon octicon-link"></span></a>dplyr<a class="anchor-link" href="#dplyr"> </a>
+</h1>
+<p>Various dplyr sample codes</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="rleid">
+<a class="anchor" href="#rleid" aria-hidden="true"><span class="octicon octicon-link"></span></a>rleid<a class="anchor-link" href="#rleid"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">mtcars</span><span class="o">%&gt;%</span><span class="nf">as_tibble</span><span class="p">()</span><span class="o">%&gt;%</span><span class="nf">mutate</span><span class="p">(</span><span class="n">rleid</span><span class="o">=</span><span class="p">(</span><span class="n">gear</span><span class="o">!=</span><span class="nf">lag</span><span class="p">(</span><span class="n">gear</span><span class="p">,</span><span class="n">default</span> <span class="o">=</span> <span class="m">0</span><span class="p">)))</span><span class="o">%&gt;%</span><span class="nf">mutate</span><span class="p">(</span><span class="n">rleid</span><span class="o">=</span><span class="nf">cumsum</span><span class="p">(</span><span class="n">rleid</span><span class="p">))</span><span class="o">%&gt;%</span><span class="nf">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<thead><tr>
+<th scope="col">mpg</th>
+<th scope="col">cyl</th>
+<th scope="col">disp</th>
+<th scope="col">hp</th>
+<th scope="col">drat</th>
+<th scope="col">wt</th>
+<th scope="col">qsec</th>
+<th scope="col">vs</th>
+<th scope="col">am</th>
+<th scope="col">gear</th>
+<th scope="col">carb</th>
+<th scope="col">rleid</th>
+</tr></thead>
+<tbody>
+	<tr>
+<td>21.0 </td>
+<td>6    </td>
+<td>160  </td>
+<td>110  </td>
+<td>3.90 </td>
+<td>2.620</td>
+<td>16.46</td>
+<td>0    </td>
+<td>1    </td>
+<td>4    </td>
+<td>4    </td>
+<td>1    </td>
+</tr>
+	<tr>
+<td>21.0 </td>
+<td>6    </td>
+<td>160  </td>
+<td>110  </td>
+<td>3.90 </td>
+<td>2.875</td>
+<td>17.02</td>
+<td>0    </td>
+<td>1    </td>
+<td>4    </td>
+<td>4    </td>
+<td>1    </td>
+</tr>
+	<tr>
+<td>22.8 </td>
+<td>4    </td>
+<td>108  </td>
+<td> 93  </td>
+<td>3.85 </td>
+<td>2.320</td>
+<td>18.61</td>
+<td>1    </td>
+<td>1    </td>
+<td>4    </td>
+<td>1    </td>
+<td>1    </td>
+</tr>
+	<tr>
+<td>21.4 </td>
+<td>6    </td>
+<td>258  </td>
+<td>110  </td>
+<td>3.08 </td>
+<td>3.215</td>
+<td>19.44</td>
+<td>1    </td>
+<td>0    </td>
+<td>3    </td>
+<td>1    </td>
+<td>2    </td>
+</tr>
+	<tr>
+<td>18.7 </td>
+<td>8    </td>
+<td>360  </td>
+<td>175  </td>
+<td>3.15 </td>
+<td>3.440</td>
+<td>17.02</td>
+<td>0    </td>
+<td>0    </td>
+<td>3    </td>
+<td>2    </td>
+<td>2    </td>
+</tr>
+	<tr>
+<td>18.1 </td>
+<td>6    </td>
+<td>225  </td>
+<td>105  </td>
+<td>2.76 </td>
+<td>3.460</td>
+<td>20.22</td>
+<td>1    </td>
+<td>0    </td>
+<td>3    </td>
+<td>1    </td>
+<td>2    </td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="rleid-with-index">
+<a class="anchor" href="#rleid-with-index" aria-hidden="true"><span class="octicon octicon-link"></span></a>rleid with index<a class="anchor-link" href="#rleid-with-index"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">mtcars</span><span class="o">%&gt;%</span><span class="nf">as_tibble</span><span class="p">()</span><span class="o">%&gt;%</span>
+    <span class="nf">mutate</span><span class="p">(</span><span class="n">rleid</span><span class="o">=</span><span class="p">(</span><span class="n">gear</span><span class="o">!=</span><span class="nf">lag</span><span class="p">(</span><span class="n">gear</span><span class="p">,</span><span class="n">default</span> <span class="o">=</span> <span class="m">0</span><span class="p">)))</span><span class="o">%&gt;%</span>
+    <span class="nf">mutate</span><span class="p">(</span><span class="n">rleid</span><span class="o">=</span><span class="nf">cumsum</span><span class="p">(</span><span class="n">rleid</span><span class="p">))</span><span class="o">%&gt;%</span>
+    <span class="nf">group_by</span><span class="p">(</span><span class="n">rleid</span><span class="p">)</span><span class="o">%&gt;%</span>
+    <span class="nf">mutate</span><span class="p">(</span><span class="n">row_number</span><span class="o">=</span><span class="nf">row_number</span><span class="p">())</span><span class="o">%&gt;%</span>
+    <span class="nf">ungroup</span><span class="p">()</span><span class="o">%&gt;%</span><span class="nf">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<thead><tr>
+<th scope="col">mpg</th>
+<th scope="col">cyl</th>
+<th scope="col">disp</th>
+<th scope="col">hp</th>
+<th scope="col">drat</th>
+<th scope="col">wt</th>
+<th scope="col">qsec</th>
+<th scope="col">vs</th>
+<th scope="col">am</th>
+<th scope="col">gear</th>
+<th scope="col">carb</th>
+<th scope="col">rleid</th>
+<th scope="col">row_number</th>
+</tr></thead>
+<tbody>
+	<tr>
+<td>21.0 </td>
+<td>6    </td>
+<td>160  </td>
+<td>110  </td>
+<td>3.90 </td>
+<td>2.620</td>
+<td>16.46</td>
+<td>0    </td>
+<td>1    </td>
+<td>4    </td>
+<td>4    </td>
+<td>1    </td>
+<td>1    </td>
+</tr>
+	<tr>
+<td>21.0 </td>
+<td>6    </td>
+<td>160  </td>
+<td>110  </td>
+<td>3.90 </td>
+<td>2.875</td>
+<td>17.02</td>
+<td>0    </td>
+<td>1    </td>
+<td>4    </td>
+<td>4    </td>
+<td>1    </td>
+<td>2    </td>
+</tr>
+	<tr>
+<td>22.8 </td>
+<td>4    </td>
+<td>108  </td>
+<td> 93  </td>
+<td>3.85 </td>
+<td>2.320</td>
+<td>18.61</td>
+<td>1    </td>
+<td>1    </td>
+<td>4    </td>
+<td>1    </td>
+<td>1    </td>
+<td>3    </td>
+</tr>
+	<tr>
+<td>21.4 </td>
+<td>6    </td>
+<td>258  </td>
+<td>110  </td>
+<td>3.08 </td>
+<td>3.215</td>
+<td>19.44</td>
+<td>1    </td>
+<td>0    </td>
+<td>3    </td>
+<td>1    </td>
+<td>2    </td>
+<td>1    </td>
+</tr>
+	<tr>
+<td>18.7 </td>
+<td>8    </td>
+<td>360  </td>
+<td>175  </td>
+<td>3.15 </td>
+<td>3.440</td>
+<td>17.02</td>
+<td>0    </td>
+<td>0    </td>
+<td>3    </td>
+<td>2    </td>
+<td>2    </td>
+<td>2    </td>
+</tr>
+	<tr>
+<td>18.1 </td>
+<td>6    </td>
+<td>225  </td>
+<td>105  </td>
+<td>2.76 </td>
+<td>3.460</td>
+<td>20.22</td>
+<td>1    </td>
+<td>0    </td>
+<td>3    </td>
+<td>1    </td>
+<td>2    </td>
+<td>3    </td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="find-repeated-numbers">
+<a class="anchor" href="#find-repeated-numbers" aria-hidden="true"><span class="octicon octicon-link"></span></a>find repeated numbers<a class="anchor-link" href="#find-repeated-numbers"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">find_duplicated_seq</span><span class="o">&lt;-</span><span class="nf">function</span><span class="p">(</span><span class="n">vec</span><span class="p">){</span>
+    <span class="c1">#find repeated numbers but exclude -1</span>
+    <span class="n">lead_vec</span><span class="o">=</span><span class="n">dplyr</span><span class="o">::</span><span class="nf">lead</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span><span class="n">default</span><span class="o">=</span><span class="m">0</span><span class="p">)</span>
+    <span class="n">out</span><span class="o">=</span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">vec</span><span class="o">==</span><span class="n">lead_vec</span><span class="o">&amp;</span><span class="n">vec</span><span class="o">!=</span><span class="m">-1</span><span class="p">)</span>
+    <span class="n">out</span><span class="o">=</span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">out</span><span class="o">+</span><span class="n">dplyr</span><span class="o">::</span><span class="nf">lag</span><span class="p">(</span><span class="n">out</span><span class="p">,</span><span class="n">default</span><span class="o">=</span><span class="m">0</span><span class="p">)</span><span class="o">!=</span><span class="m">0</span><span class="p">)</span>
+    <span class="nf">return</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="n">df</span><span class="o">=</span><span class="nf">tibble</span><span class="p">(</span><span class="n">vec</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">6.1</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">6.2</span><span class="p">,</span><span class="m">-1</span><span class="p">,</span><span class="m">-1</span><span class="p">,</span><span class="m">-1</span><span class="p">,</span><span class="m">8</span><span class="p">,</span><span class="m">8</span><span class="p">,</span><span class="m">8</span><span class="p">))</span>
+<span class="n">df</span><span class="o">%&gt;%</span><span class="nf">mutate</span><span class="p">(</span><span class="n">out</span><span class="o">=</span><span class="nf">find_duplicated_seq</span><span class="p">(</span><span class="n">vec</span><span class="p">))</span><span class="o">%&gt;%</span><span class="nf">head</span><span class="p">(</span><span class="m">15</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<thead><tr>
+<th scope="col">vec</th>
+<th scope="col">out</th>
+</tr></thead>
+<tbody>
+	<tr>
+<td> 1.0</td>
+<td>0   </td>
+</tr>
+	<tr>
+<td> 2.0</td>
+<td>0   </td>
+</tr>
+	<tr>
+<td> 4.0</td>
+<td>0   </td>
+</tr>
+	<tr>
+<td> 5.0</td>
+<td>1   </td>
+</tr>
+	<tr>
+<td> 5.0</td>
+<td>1   </td>
+</tr>
+	<tr>
+<td> 5.0</td>
+<td>1   </td>
+</tr>
+	<tr>
+<td> 6.1</td>
+<td>0   </td>
+</tr>
+	<tr>
+<td> 6.0</td>
+<td>0   </td>
+</tr>
+	<tr>
+<td> 6.2</td>
+<td>0   </td>
+</tr>
+	<tr>
+<td>-1.0</td>
+<td>0   </td>
+</tr>
+	<tr>
+<td>-1.0</td>
+<td>0   </td>
+</tr>
+	<tr>
+<td>-1.0</td>
+<td>0   </td>
+</tr>
+	<tr>
+<td> 8.0</td>
+<td>1   </td>
+</tr>
+	<tr>
+<td> 8.0</td>
+<td>1   </td>
+</tr>
+	<tr>
+<td> 8.0</td>
+<td>1   </td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="impute-n-numbers-of-consecutive-NAs">
+<a class="anchor" href="#impute-n-numbers-of-consecutive-NAs" aria-hidden="true"><span class="octicon octicon-link"></span></a>impute n numbers of consecutive NAs<a class="anchor-link" href="#impute-n-numbers-of-consecutive-NAs"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1">#     df=tibble(c=vec)</span>
+<span class="c1">#     df=df%&gt;%mutate(rn=row_number())</span>
+<span class="c1">#     if(is.na(df$c[length(df$c)])){</span>
+<span class="c1">#     df$c[length(df$c)]=tail(df$c[!is.na(df$c)],1)</span>
+<span class="c1">#     }</span>
+<span class="c1">#     if(is.na(df$c[1])){</span>
+<span class="c1">#     df$c[1]=df$c[!is.na(df$c)][1]</span>
+<span class="c1">#     }</span>
+<span class="c1">#     tdf=df%&gt;%filter(!is.na(c))</span>
+<span class="c1">#     tdf_diff=tdf$rn%&gt;%diff()</span>
+<span class="c1">#     len_na=tdf_diff[tdf_diff!=1]-1</span>
+<span class="c1">#     miss_idx=tdf$rn[(tdf_diff!=1)]</span>
+
+<span class="c1">#     start_idx=miss_idx+1</span>
+<span class="c1">#     end_idx=start_idx+len_na-1</span>
+
+<span class="c1">#     start_idx_ip=start_idx[len_na&lt;dt]</span>
+<span class="c1">#     end_idx_ip=end_idx[len_na&lt;dt]</span>
+<span class="c1">#     start_idx_na=start_idx[len_na&gt;=dt]</span>
+<span class="c1">#     end_idx_na=end_idx[len_na&gt;=dt]</span>
+
+<span class="c1">#     dfi=df%&gt;%mutate(c=imputeTS::na.interpolation(df$c))</span>
+
+<span class="c1">#     for(i in 1:length(start_idx_na)){</span>
+<span class="c1">#     dfi$c[start_idx_na[i]:end_idx_na[i]]=df$c[start_idx_na[i]:end_idx_na[i]]</span>
+<span class="c1">#     }</span>
+<span class="c1">#     return(dfi$c)</span>
+<span class="c1"># }</span>
+<span class="c1"># cc=c(1,2,NA,NA,5,6.1,6,NA,NA,NA,NA,NA,7,7.1,7.2,7.3,NA,NA,NA)</span>
+<span class="c1"># impute_na_dt(vec=cc,dt=4)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="slicing">
+<a class="anchor" href="#slicing" aria-hidden="true"><span class="octicon octicon-link"></span></a>slicing<a class="anchor-link" href="#slicing"> </a>
+</h2>
+<p>Slice dataframe by row number. Negative for disselection. n() for the last row<br>
+<a href="https://dplyr.tidyverse.org/reference/slice.html">https://dplyr.tidyverse.org/reference/slice.html</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">mtcars</span><span class="o">%&gt;%</span><span class="nf">as_tibble</span><span class="p">()</span><span class="o">%&gt;%</span><span class="nf">slice</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">)</span><span class="o">%&gt;%</span><span class="nf">slice</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">-1</span><span class="p">,</span><span class="o">-</span><span class="nf">n</span><span class="p">()))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<thead><tr>
+<th scope="col">mpg</th>
+<th scope="col">cyl</th>
+<th scope="col">disp</th>
+<th scope="col">hp</th>
+<th scope="col">drat</th>
+<th scope="col">wt</th>
+<th scope="col">qsec</th>
+<th scope="col">vs</th>
+<th scope="col">am</th>
+<th scope="col">gear</th>
+<th scope="col">carb</th>
+</tr></thead>
+<tbody>
+	<tr>
+<td>21.0 </td>
+<td>6    </td>
+<td>160  </td>
+<td>110  </td>
+<td>3.90 </td>
+<td>2.875</td>
+<td>17.02</td>
+<td>0    </td>
+<td>1    </td>
+<td>4    </td>
+<td>4    </td>
+</tr>
+	<tr>
+<td>22.8 </td>
+<td>4    </td>
+<td>108  </td>
+<td> 93  </td>
+<td>3.85 </td>
+<td>2.320</td>
+<td>18.61</td>
+<td>1    </td>
+<td>1    </td>
+<td>4    </td>
+<td>1    </td>
+</tr>
+	<tr>
+<td>21.4 </td>
+<td>6    </td>
+<td>258  </td>
+<td>110  </td>
+<td>3.08 </td>
+<td>3.215</td>
+<td>19.44</td>
+<td>1    </td>
+<td>0    </td>
+<td>3    </td>
+<td>1    </td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="transpose-of-dataframe">
+<a class="anchor" href="#transpose-of-dataframe" aria-hidden="true"><span class="octicon octicon-link"></span></a>transpose of dataframe<a class="anchor-link" href="#transpose-of-dataframe"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">mapping</span><span class="o">=</span><span class="nf">tibble</span><span class="p">(</span><span class="n">channel</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">"c01"</span><span class="p">,</span><span class="s">"c02"</span><span class="p">,</span><span class="s">"c03"</span><span class="p">,</span><span class="s">"c04"</span><span class="p">,</span><span class="s">"c05"</span><span class="p">),</span>
+              <span class="n">type01</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">"ahu1"</span><span class="p">,</span><span class="s">"disposal"</span><span class="p">,</span><span class="s">"ahu2"</span><span class="p">,</span><span class="s">"kitchen1"</span><span class="p">,</span><span class="s">"microwave"</span><span class="p">),</span>
+              <span class="n">type02</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">"ahu1"</span><span class="p">,</span><span class="s">"disposal"</span><span class="p">,</span><span class="s">"kitchen1"</span><span class="p">,</span><span class="s">"ahu2"</span><span class="p">,</span><span class="s">"light"</span><span class="p">),</span>
+              <span class="n">type03</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">"ahu1"</span><span class="p">,</span><span class="s">"ahu2"</span><span class="p">,</span><span class="s">"disposal"</span><span class="p">,</span><span class="s">"kitchen1"</span><span class="p">,</span><span class="s">"room"</span><span class="p">),</span>
+              <span class="n">type04</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">"disposal"</span><span class="p">,</span><span class="s">"ahu1"</span><span class="p">,</span><span class="s">"ahu2"</span><span class="p">,</span><span class="s">"kitchen1"</span><span class="p">,</span><span class="s">"living"</span><span class="p">))</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">mapping</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="s">"Transposed dataframe"</span><span class="p">)</span>
+<span class="c1"># should be updated for pivot_wider / pivot_longer when R 4.0 is available.</span>
+<span class="n">mapping</span> <span class="o">%&gt;%</span>
+  <span class="nf">gather</span><span class="p">(</span><span class="n">key</span> <span class="o">=</span> <span class="n">var_name</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="p">,</span> <span class="m">-1</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">spread_</span><span class="p">(</span><span class="n">key</span> <span class="o">=</span> <span class="nf">names</span><span class="p">(</span><span class="n">mapping</span><span class="p">)[</span><span class="m">1</span><span class="p">],</span><span class="n">value</span> <span class="o">=</span> <span class="s">'value'</span><span class="p">)</span><span class="o">%&gt;%</span><span class="nf">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<thead><tr>
+<th scope="col">channel</th>
+<th scope="col">type01</th>
+<th scope="col">type02</th>
+<th scope="col">type03</th>
+<th scope="col">type04</th>
+</tr></thead>
+<tbody>
+	<tr>
+<td>c01      </td>
+<td>ahu1     </td>
+<td>ahu1     </td>
+<td>ahu1     </td>
+<td>disposal </td>
+</tr>
+	<tr>
+<td>c02      </td>
+<td>disposal </td>
+<td>disposal </td>
+<td>ahu2     </td>
+<td>ahu1     </td>
+</tr>
+	<tr>
+<td>c03      </td>
+<td>ahu2     </td>
+<td>kitchen1 </td>
+<td>disposal </td>
+<td>ahu2     </td>
+</tr>
+	<tr>
+<td>c04      </td>
+<td>kitchen1 </td>
+<td>ahu2     </td>
+<td>kitchen1 </td>
+<td>kitchen1 </td>
+</tr>
+	<tr>
+<td>c05      </td>
+<td>microwave</td>
+<td>light    </td>
+<td>room     </td>
+<td>living   </td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1] "Transposed dataframe"
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<thead><tr>
+<th scope="col">var_name</th>
+<th scope="col">c01</th>
+<th scope="col">c02</th>
+<th scope="col">c03</th>
+<th scope="col">c04</th>
+<th scope="col">c05</th>
+</tr></thead>
+<tbody>
+	<tr>
+<td>type01   </td>
+<td>ahu1     </td>
+<td>disposal </td>
+<td>ahu2     </td>
+<td>kitchen1 </td>
+<td>microwave</td>
+</tr>
+	<tr>
+<td>type02   </td>
+<td>ahu1     </td>
+<td>disposal </td>
+<td>kitchen1 </td>
+<td>ahu2     </td>
+<td>light    </td>
+</tr>
+	<tr>
+<td>type03   </td>
+<td>ahu1     </td>
+<td>ahu2     </td>
+<td>disposal </td>
+<td>kitchen1 </td>
+<td>room     </td>
+</tr>
+	<tr>
+<td>type04   </td>
+<td>disposal </td>
+<td>ahu1     </td>
+<td>ahu2     </td>
+<td>kitchen1 </td>
+<td>living   </td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="select-columns-by-conditions">
+<a class="anchor" href="#select-columns-by-conditions" aria-hidden="true"><span class="octicon octicon-link"></span></a>select columns by conditions<a class="anchor-link" href="#select-columns-by-conditions"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="nf">tibble</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">),</span><span class="n">y</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">),</span><span class="n">z</span><span class="o">=</span><span class="nf">rep</span><span class="p">(</span><span class="kc">NA_real_</span><span class="p">,</span><span class="m">4</span><span class="p">),</span><span class="n">x1</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">))</span>
+<span class="nf">print</span><span class="p">(</span><span class="s">"all df"</span><span class="p">)</span>
+<span class="n">df</span>
+<span class="nf">print</span><span class="p">(</span><span class="s">"select columns that do not have any NA value and two unique values"</span><span class="p">)</span>
+<span class="n">df</span><span class="o">%&gt;%</span><span class="nf">select_if</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="o">~</span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="nf">unique</span><span class="p">(</span><span class="n">.</span><span class="p">))</span><span class="o">==</span><span class="m">2</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="o">!</span><span class="nf">anyNA</span><span class="p">(</span><span class="n">.</span><span class="p">))))</span>
+<span class="n">df</span><span class="o">%&gt;%</span><span class="nf">select_if</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="o">~</span><span class="p">(</span><span class="nf">n_distinct</span><span class="p">(</span><span class="n">.</span><span class="p">)</span><span class="o">==</span><span class="m">2</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="o">!</span><span class="nf">anyNA</span><span class="p">(</span><span class="n">.</span><span class="p">))))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1] "all df"
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<thead><tr>
+<th scope="col">x</th>
+<th scope="col">y</th>
+<th scope="col">z</th>
+<th scope="col">x1</th>
+</tr></thead>
+<tbody>
+	<tr>
+<td>1 </td>
+<td>1 </td>
+<td>NA</td>
+<td>2 </td>
+</tr>
+	<tr>
+<td>0 </td>
+<td>2 </td>
+<td>NA</td>
+<td>3 </td>
+</tr>
+	<tr>
+<td>0 </td>
+<td>3 </td>
+<td>NA</td>
+<td>2 </td>
+</tr>
+	<tr>
+<td>1 </td>
+<td>4 </td>
+<td>NA</td>
+<td>3 </td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1] "select columns that do not have any NA value and two unique values"
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<thead><tr>
+<th scope="col">x</th>
+<th scope="col">x1</th>
+</tr></thead>
+<tbody>
+	<tr>
+<td>1</td>
+<td>2</td>
+</tr>
+	<tr>
+<td>0</td>
+<td>3</td>
+</tr>
+	<tr>
+<td>0</td>
+<td>2</td>
+</tr>
+	<tr>
+<td>1</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<thead><tr>
+<th scope="col">x</th>
+<th scope="col">x1</th>
+</tr></thead>
+<tbody>
+	<tr>
+<td>1</td>
+<td>2</td>
+</tr>
+	<tr>
+<td>0</td>
+<td>3</td>
+</tr>
+	<tr>
+<td>0</td>
+<td>2</td>
+</tr>
+	<tr>
+<td>1</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="rolling-joins-through-data.table">
+<a class="anchor" href="#rolling-joins-through-data.table" aria-hidden="true"><span class="octicon octicon-link"></span></a>rolling joins through data.table<a class="anchor-link" href="#rolling-joins-through-data.table"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">ecobee_changes</span> <span class="o">&lt;-</span> <span class="nf">data.table</span><span class="p">(</span>
+  <span class="n">change_id</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">"c1"</span><span class="p">,</span> <span class="s">"c2"</span><span class="p">,</span> <span class="s">"c3"</span><span class="p">,</span> <span class="s">"c4"</span><span class="p">),</span>
+  <span class="n">change_time</span> <span class="o">=</span> <span class="nf">ymd_hms</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">"2020-11-10 15:05:00"</span><span class="p">,</span> <span class="s">"2020-11-10 16:15:00"</span><span class="p">,</span> <span class="s">"2020-11-10 16:20:00"</span><span class="p">,</span> <span class="s">"2020-11-10 17:30:00"</span><span class="p">))</span>
+<span class="p">)</span>
+
+<span class="n">interactions</span> <span class="o">&lt;-</span> <span class="nf">data.table</span><span class="p">(</span>
+  <span class="n">interaction_id</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">"i1"</span><span class="p">,</span><span class="s">"i2"</span><span class="p">,</span><span class="s">"i3"</span><span class="p">),</span>
+  <span class="n">interaction_time</span> <span class="o">=</span> <span class="nf">ymd_hms</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">"2020-11-10 16:17:30"</span><span class="p">,</span> <span class="s">"2020-11-10 16:19:25"</span><span class="p">,</span>  <span class="s">"2020-11-10 17:31:30"</span><span class="p">))</span>
+<span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">ecobee_changes</span><span class="p">[,</span> <span class="n">action_time</span> <span class="o">:=</span> <span class="n">change_time</span><span class="p">]</span>
+<span class="n">interactions</span><span class="p">[,</span> <span class="n">action_time</span> <span class="o">:=</span> <span class="n">interaction_time</span><span class="p">]</span>
+
+<span class="nf">setkey</span><span class="p">(</span><span class="n">ecobee_changes</span><span class="p">,</span> <span class="s">"action_time"</span><span class="p">)</span>
+<span class="nf">setkey</span><span class="p">(</span><span class="n">interactions</span><span class="p">,</span> <span class="s">"action_time"</span><span class="p">)</span>
+
+
+<span class="n">out</span><span class="o">=</span><span class="nf">as_tibble</span><span class="p">(</span><span class="n">ecobee_changes</span><span class="p">)</span><span class="o">%&gt;%</span><span class="nf">select</span><span class="p">(</span><span class="o">-</span><span class="n">action_time</span><span class="p">)</span><span class="o">%&gt;%</span>
+  <span class="nf">left_join</span><span class="p">(</span><span class="nf">as_tibble</span><span class="p">(</span><span class="n">ecobee_changes</span><span class="p">[</span><span class="n">interactions</span><span class="p">,</span> <span class="n">roll</span> <span class="o">=</span> <span class="s">"nearest"</span><span class="p">]),</span><span class="n">on</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">"change_time"</span><span class="p">,</span><span class="s">"change_id"</span><span class="p">))</span>
+
+<span class="n">out</span>
+<span class="c1">#interactions[ecobee_changes, roll = "nearest"]%&gt;%as_tibble()%&gt;%filter(distinct())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Joining, by = c("change_id", "change_time")
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<thead><tr>
+<th scope="col">change_id</th>
+<th scope="col">change_time</th>
+<th scope="col">action_time</th>
+<th scope="col">interaction_id</th>
+<th scope="col">interaction_time</th>
+</tr></thead>
+<tbody>
+	<tr>
+<td>c1                 </td>
+<td>2020-11-10 15:05:00</td>
+<td>NA                 </td>
+<td>NA                 </td>
+<td>NA                 </td>
+</tr>
+	<tr>
+<td>c2                 </td>
+<td>2020-11-10 16:15:00</td>
+<td>2020-11-10 16:17:30</td>
+<td>i1                 </td>
+<td>2020-11-10 16:17:30</td>
+</tr>
+	<tr>
+<td>c3                 </td>
+<td>2020-11-10 16:20:00</td>
+<td>2020-11-10 16:19:25</td>
+<td>i2                 </td>
+<td>2020-11-10 16:19:25</td>
+</tr>
+	<tr>
+<td>c4                 </td>
+<td>2020-11-10 17:30:00</td>
+<td>2020-11-10 17:31:30</td>
+<td>i3                 </td>
+<td>2020-11-10 17:31:30</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nf">data.table</span><span class="p">(</span>
+  <span class="n">eventid</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">),</span>
+  <span class="n">start</span>  <span class="o">=</span><span class="nf">mdy_hms</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">'10/1/2016 04:30:00'</span><span class="p">,</span><span class="s">'10/1/2016 18:02:00'</span><span class="p">,</span><span class="s">'10/2/2016 14:21:00'</span><span class="p">)),</span>
+  <span class="n">end</span>    <span class="o">=</span><span class="nf">mdy_hms</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">'10/1/2016 05:43:00'</span><span class="p">,</span><span class="s">'10/2/2016 01:23:00'</span><span class="p">,</span><span class="s">'10/4/2016 08:54:00'</span><span class="p">))</span>
+<span class="p">)</span>
+
+<span class="c1">#y is a data table with a list of all dates</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nf">data.table</span><span class="p">(</span>
+  <span class="n">date</span> <span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">'10/1/2016'</span><span class="p">,</span><span class="s">'10/2/2016'</span><span class="p">,</span><span class="s">'10/3/2016'</span><span class="p">,</span><span class="s">'10/4/2016'</span><span class="p">,</span><span class="s">'10/5/2016'</span><span class="p">,</span><span class="s">'10/6/2016'</span><span class="p">),</span>
+  <span class="n">start</span><span class="o">=</span><span class="nf">mdy_hms</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">'10/1/2016 00:00:00'</span><span class="p">,</span><span class="s">'10/2/2016 00:00:00'</span><span class="p">,</span><span class="s">'10/3/2016 00:00:00'</span><span class="p">,</span><span class="s">'10/4/2016 00:00:00'</span><span class="p">,</span><span class="s">'10/5/2016 00:00:00'</span><span class="p">,</span><span class="s">'10/6/2016 00:00:00'</span><span class="p">)),</span>
+  <span class="n">end</span>  <span class="o">=</span><span class="nf">mdy_hms</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">'10/1/2016 23:59:59'</span><span class="p">,</span><span class="s">'10/2/2016 23:59:59'</span><span class="p">,</span><span class="s">'10/3/2016 23:59:59'</span><span class="p">,</span><span class="s">'10/4/2016 23:59:59'</span><span class="p">,</span><span class="s">'10/5/2016 23:59:59'</span><span class="p">,</span><span class="s">'10/6/2016 23:59:59'</span><span class="p">))</span>
+  <span class="p">)</span>
+
+<span class="c1">#set the key on y to match with</span>
+<span class="nf">setkey</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="s">"start"</span><span class="p">,</span><span class="s">"end"</span><span class="p">)</span>
+
+<span class="c1">#use the foverlaps function to match</span>
+<span class="c1">#</span>
+<span class="c1">#note that eventid 1 matches one date only</span>
+<span class="c1">#          eventid 2 matches two dates</span>
+<span class="c1">#          eventid 3 matches three dates</span>
+<span class="c1">#</span>
+<span class="n">result</span> <span class="o">&lt;-</span> <span class="nf">foverlaps</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">type</span><span class="o">=</span><span class="s">"any"</span><span class="p">)</span>
+
+<span class="c1">#show results</span>
+<span class="n">x</span>
+<span class="n">y</span>
+
+<span class="n">result</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<thead><tr>
+<th scope="col">eventid</th>
+<th scope="col">start</th>
+<th scope="col">end</th>
+</tr></thead>
+<tbody>
+	<tr>
+<td>1                  </td>
+<td>2016-10-01 04:30:00</td>
+<td>2016-10-01 05:43:00</td>
+</tr>
+	<tr>
+<td>2                  </td>
+<td>2016-10-01 18:02:00</td>
+<td>2016-10-02 01:23:00</td>
+</tr>
+	<tr>
+<td>3                  </td>
+<td>2016-10-02 14:21:00</td>
+<td>2016-10-04 08:54:00</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<thead><tr>
+<th scope="col">date</th>
+<th scope="col">start</th>
+<th scope="col">end</th>
+</tr></thead>
+<tbody>
+	<tr>
+<td>10/1/2016          </td>
+<td>2016-10-01         </td>
+<td>2016-10-01 23:59:59</td>
+</tr>
+	<tr>
+<td>10/2/2016          </td>
+<td>2016-10-02         </td>
+<td>2016-10-02 23:59:59</td>
+</tr>
+	<tr>
+<td>10/3/2016          </td>
+<td>2016-10-03         </td>
+<td>2016-10-03 23:59:59</td>
+</tr>
+	<tr>
+<td>10/4/2016          </td>
+<td>2016-10-04         </td>
+<td>2016-10-04 23:59:59</td>
+</tr>
+	<tr>
+<td>10/5/2016          </td>
+<td>2016-10-05         </td>
+<td>2016-10-05 23:59:59</td>
+</tr>
+	<tr>
+<td>10/6/2016          </td>
+<td>2016-10-06         </td>
+<td>2016-10-06 23:59:59</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<thead><tr>
+<th scope="col">date</th>
+<th scope="col">start</th>
+<th scope="col">end</th>
+<th scope="col">eventid</th>
+<th scope="col">i.start</th>
+<th scope="col">i.end</th>
+</tr></thead>
+<tbody>
+	<tr>
+<td>10/1/2016          </td>
+<td>2016-10-01         </td>
+<td>2016-10-01 23:59:59</td>
+<td>1                  </td>
+<td>2016-10-01 04:30:00</td>
+<td>2016-10-01 05:43:00</td>
+</tr>
+	<tr>
+<td>10/1/2016          </td>
+<td>2016-10-01         </td>
+<td>2016-10-01 23:59:59</td>
+<td>2                  </td>
+<td>2016-10-01 18:02:00</td>
+<td>2016-10-02 01:23:00</td>
+</tr>
+	<tr>
+<td>10/2/2016          </td>
+<td>2016-10-02         </td>
+<td>2016-10-02 23:59:59</td>
+<td>2                  </td>
+<td>2016-10-01 18:02:00</td>
+<td>2016-10-02 01:23:00</td>
+</tr>
+	<tr>
+<td>10/2/2016          </td>
+<td>2016-10-02         </td>
+<td>2016-10-02 23:59:59</td>
+<td>3                  </td>
+<td>2016-10-02 14:21:00</td>
+<td>2016-10-04 08:54:00</td>
+</tr>
+	<tr>
+<td>10/3/2016          </td>
+<td>2016-10-03         </td>
+<td>2016-10-03 23:59:59</td>
+<td>3                  </td>
+<td>2016-10-02 14:21:00</td>
+<td>2016-10-04 08:54:00</td>
+</tr>
+	<tr>
+<td>10/4/2016          </td>
+<td>2016-10-04         </td>
+<td>2016-10-04 23:59:59</td>
+<td>3                  </td>
+<td>2016-10-02 14:21:00</td>
+<td>2016-10-04 08:54:00</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="purrr">
+<a class="anchor" href="#purrr" aria-hidden="true"><span class="octicon octicon-link"></span></a>purrr<a class="anchor-link" href="#purrr"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Purrr is useful when to wrap a function for a tibble with vectorization.</p>
+<p><code>map</code> might be a general language, but I use <code>pmap_x</code> for general use.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">mtcars</span><span class="o">%&gt;%</span>
+    <span class="nf">as_tibble</span><span class="p">()</span><span class="o">%&gt;%</span>
+    <span class="nf">mutate</span><span class="p">(</span><span class="n">new</span><span class="o">=</span><span class="nf">pmap_dbl</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="n">mpg</span><span class="p">,</span><span class="n">cyl</span><span class="p">),</span>
+                        <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">){</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">+</span><span class="n">y</span><span class="o">^</span><span class="m">2+2</span><span class="p">}))</span><span class="o">%&gt;%</span><span class="nf">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<thead><tr>
+<th scope="col">mpg</th>
+<th scope="col">cyl</th>
+<th scope="col">disp</th>
+<th scope="col">hp</th>
+<th scope="col">drat</th>
+<th scope="col">wt</th>
+<th scope="col">qsec</th>
+<th scope="col">vs</th>
+<th scope="col">am</th>
+<th scope="col">gear</th>
+<th scope="col">carb</th>
+<th scope="col">new</th>
+</tr></thead>
+<tbody>
+	<tr>
+<td>21.0 </td>
+<td>6    </td>
+<td>160  </td>
+<td>110  </td>
+<td>3.90 </td>
+<td>2.620</td>
+<td>16.46</td>
+<td>0    </td>
+<td>1    </td>
+<td>4    </td>
+<td>4    </td>
+<td>164.0</td>
+</tr>
+	<tr>
+<td>21.0 </td>
+<td>6    </td>
+<td>160  </td>
+<td>110  </td>
+<td>3.90 </td>
+<td>2.875</td>
+<td>17.02</td>
+<td>0    </td>
+<td>1    </td>
+<td>4    </td>
+<td>4    </td>
+<td>164.0</td>
+</tr>
+	<tr>
+<td>22.8 </td>
+<td>4    </td>
+<td>108  </td>
+<td> 93  </td>
+<td>3.85 </td>
+<td>2.320</td>
+<td>18.61</td>
+<td>1    </td>
+<td>1    </td>
+<td>4    </td>
+<td>1    </td>
+<td>109.2</td>
+</tr>
+	<tr>
+<td>21.4 </td>
+<td>6    </td>
+<td>258  </td>
+<td>110  </td>
+<td>3.08 </td>
+<td>3.215</td>
+<td>19.44</td>
+<td>1    </td>
+<td>0    </td>
+<td>3    </td>
+<td>1    </td>
+<td>166.4</td>
+</tr>
+	<tr>
+<td>18.7 </td>
+<td>8    </td>
+<td>360  </td>
+<td>175  </td>
+<td>3.15 </td>
+<td>3.440</td>
+<td>17.02</td>
+<td>0    </td>
+<td>0    </td>
+<td>3    </td>
+<td>2    </td>
+<td>215.6</td>
+</tr>
+	<tr>
+<td>18.1 </td>
+<td>6    </td>
+<td>225  </td>
+<td>105  </td>
+<td>2.76 </td>
+<td>3.460</td>
+<td>20.22</td>
+<td>1    </td>
+<td>0    </td>
+<td>3    </td>
+<td>1    </td>
+<td>146.6</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">custom_if_else</span><span class="o">=</span><span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">){</span>
+    <span class="nf">if </span><span class="p">(</span><span class="n">x</span><span class="o">==</span><span class="m">6</span> <span class="o">&amp;</span> <span class="n">y</span><span class="o">&lt;=</span><span class="m">21</span><span class="p">){</span>
+        <span class="n">out</span><span class="o">=</span><span class="s">"type1"</span>
+    <span class="p">}</span><span class="n">else</span> <span class="nf">if </span><span class="p">(</span><span class="n">x</span><span class="o">==</span><span class="m">8</span> <span class="o">&amp;</span> <span class="n">y</span><span class="o">&lt;</span><span class="m">18.5</span><span class="p">){</span>
+        <span class="n">out</span><span class="o">=</span><span class="s">"type2"</span>
+    <span class="p">}</span><span class="n">else</span><span class="p">{</span>
+        <span class="n">out</span><span class="o">=</span><span class="s">"type3"</span>
+    <span class="p">}</span>
+    <span class="nf">return </span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">mtcars</span><span class="o">%&gt;%</span>
+    <span class="nf">as_tibble</span><span class="p">()</span><span class="o">%&gt;%</span>
+    <span class="nf">mutate</span><span class="p">(</span><span class="n">type</span><span class="o">=</span><span class="nf">pmap_chr</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="n">mpg</span><span class="p">,</span><span class="n">cyl</span><span class="p">),</span>
+                        <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">){</span><span class="nf">custom_if_else</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)}))</span><span class="o">%&gt;%</span><span class="nf">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<thead><tr>
+<th scope="col">mpg</th>
+<th scope="col">cyl</th>
+<th scope="col">disp</th>
+<th scope="col">hp</th>
+<th scope="col">drat</th>
+<th scope="col">wt</th>
+<th scope="col">qsec</th>
+<th scope="col">vs</th>
+<th scope="col">am</th>
+<th scope="col">gear</th>
+<th scope="col">carb</th>
+<th scope="col">type</th>
+</tr></thead>
+<tbody>
+	<tr>
+<td>21.0 </td>
+<td>6    </td>
+<td>160  </td>
+<td>110  </td>
+<td>3.90 </td>
+<td>2.620</td>
+<td>16.46</td>
+<td>0    </td>
+<td>1    </td>
+<td>4    </td>
+<td>4    </td>
+<td>type3</td>
+</tr>
+	<tr>
+<td>21.0 </td>
+<td>6    </td>
+<td>160  </td>
+<td>110  </td>
+<td>3.90 </td>
+<td>2.875</td>
+<td>17.02</td>
+<td>0    </td>
+<td>1    </td>
+<td>4    </td>
+<td>4    </td>
+<td>type3</td>
+</tr>
+	<tr>
+<td>22.8 </td>
+<td>4    </td>
+<td>108  </td>
+<td> 93  </td>
+<td>3.85 </td>
+<td>2.320</td>
+<td>18.61</td>
+<td>1    </td>
+<td>1    </td>
+<td>4    </td>
+<td>1    </td>
+<td>type3</td>
+</tr>
+	<tr>
+<td>21.4 </td>
+<td>6    </td>
+<td>258  </td>
+<td>110  </td>
+<td>3.08 </td>
+<td>3.215</td>
+<td>19.44</td>
+<td>1    </td>
+<td>0    </td>
+<td>3    </td>
+<td>1    </td>
+<td>type3</td>
+</tr>
+	<tr>
+<td>18.7 </td>
+<td>8    </td>
+<td>360  </td>
+<td>175  </td>
+<td>3.15 </td>
+<td>3.440</td>
+<td>17.02</td>
+<td>0    </td>
+<td>0    </td>
+<td>3    </td>
+<td>2    </td>
+<td>type3</td>
+</tr>
+	<tr>
+<td>18.1 </td>
+<td>6    </td>
+<td>225  </td>
+<td>105  </td>
+<td>2.76 </td>
+<td>3.460</td>
+<td>20.22</td>
+<td>1    </td>
+<td>0    </td>
+<td>3    </td>
+<td>1    </td>
+<td>type3</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Lubridate">
+<a class="anchor" href="#Lubridate" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lubridate<a class="anchor-link" href="#Lubridate"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Find-time-difference">
+<a class="anchor" href="#Find-time-difference" aria-hidden="true"><span class="octicon octicon-link"></span></a>Find time difference<a class="anchor-link" href="#Find-time-difference"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">start_time</span><span class="o">=</span><span class="nf">ymd</span><span class="p">(</span><span class="s">"2021-01-01"</span><span class="p">,</span><span class="n">tz</span><span class="o">=</span><span class="s">"America/Indianapolis"</span><span class="p">)</span>
+<span class="n">end_time</span><span class="o">=</span><span class="nf">ymd_hms</span><span class="p">(</span><span class="s">"2021-01-03 23:55:00"</span><span class="p">,</span><span class="n">tz</span><span class="o">=</span><span class="s">"America/Indianapolis"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="n">end_time</span><span class="o">-</span><span class="n">start_time</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">difftime</span><span class="p">(</span><span class="n">end_time</span><span class="p">,</span><span class="n">start_time</span><span class="p">))</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">as.numeric</span><span class="p">(</span><span class="nf">as.duration</span><span class="p">(</span><span class="n">end_time</span><span class="o">-</span><span class="n">start_time</span><span class="p">),</span><span class="n">units</span><span class="o">=</span><span class="s">'minutes'</span><span class="p">))</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">interval</span><span class="p">(</span><span class="n">start_time</span><span class="p">,</span><span class="n">end_time</span><span class="p">)</span><span class="o">/</span><span class="nf">minutes</span><span class="p">(</span><span class="m">1</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Time difference of 2.996528 days
+Time difference of 2.996528 days
+[1] 4315
+[1] 4315
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Create-a-time-grid">
+<a class="anchor" href="#Create-a-time-grid" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create a time-grid<a class="anchor-link" href="#Create-a-time-grid"> </a>
+</h2>
+<p>Create 5 minutes interval timestamp from <code>start_time</code> to <code>end_time</code>.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">start_time</span><span class="o">=</span><span class="nf">ymd</span><span class="p">(</span><span class="s">"2021-01-01"</span><span class="p">,</span><span class="n">tz</span><span class="o">=</span><span class="s">"America/Indianapolis"</span><span class="p">)</span>
+<span class="n">end_time</span><span class="o">=</span><span class="nf">ymd_hms</span><span class="p">(</span><span class="s">"2021-01-03 23:55:00"</span><span class="p">,</span><span class="n">tz</span><span class="o">=</span><span class="s">"America/Indianapolis"</span><span class="p">)</span>
+<span class="n">minute_diff</span><span class="o">=</span><span class="nf">interval</span><span class="p">(</span><span class="n">start_time</span><span class="p">,</span><span class="n">end_time</span><span class="p">)</span><span class="o">/</span><span class="nf">minutes</span><span class="p">(</span><span class="m">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># it creates</span>
+<span class="n">time_grid</span><span class="o">=</span><span class="n">start_time</span><span class="o">+</span><span class="p">(</span><span class="m">0</span><span class="o">:</span><span class="p">(</span><span class="n">minute_diff</span><span class="o">/</span><span class="m">5</span><span class="p">))</span><span class="o">*</span><span class="nf">dminutes</span><span class="p">(</span><span class="m">5</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">time_grid</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">])</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">tail</span><span class="p">(</span><span class="n">time_grid</span><span class="p">,</span><span class="m">2</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1] "2021-01-01 00:00:00 EST" "2021-01-01 00:05:00 EST"
+[1] "2021-01-03 23:50:00 EST" "2021-01-03 23:55:00 EST"
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="nf">sessionInfo</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>R version 3.6.3 (2020-02-29)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 10 x64 (build 19042)
+
+Matrix products: default
+
+locale:
+[1] LC_COLLATE=English_United States.1252 
+[2] LC_CTYPE=English_United States.1252   
+[3] LC_MONETARY=English_United States.1252
+[4] LC_NUMERIC=C                          
+[5] LC_TIME=English_United States.1252    
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] data.table_1.12.2 lubridate_1.7.4   forcats_0.5.0     stringr_1.4.0    
+ [5] dplyr_0.8.0.1     purrr_0.3.4       readr_1.4.0       tidyr_0.8.3      
+ [9] tibble_2.1.1      ggplot2_3.1.1     tidyverse_1.2.1  
+
+loaded via a namespace (and not attached):
+ [1] pbdZMQ_0.3-3     tidyselect_0.2.5 repr_0.19.2      haven_2.3.1     
+ [5] lattice_0.20-38  colorspace_1.4-1 generics_0.0.2   vctrs_0.3.5     
+ [9] htmltools_0.3.6  base64enc_0.1-3  rlang_0.4.9      pillar_1.4.7    
+[13] glue_1.4.2       withr_2.1.2      modelr_0.1.8     readxl_1.3.1    
+[17] uuid_0.1-2       lifecycle_0.2.0  plyr_1.8.4       munsell_0.5.0   
+[21] gtable_0.3.0     cellranger_1.1.0 rvest_0.3.3      evaluate_0.13   
+[25] broom_0.5.2      IRdisplay_0.7.0  Rcpp_1.0.1       scales_1.0.0    
+[29] backports_1.1.4  IRkernel_0.8.15  jsonlite_1.6     hms_0.5.3       
+[33] digest_0.6.18    stringi_1.4.3    grid_3.6.3       cli_1.1.0       
+[37] tools_3.6.3      magrittr_1.5     lazyeval_0.2.2   crayon_1.3.4    
+[41] pkgconfig_2.0.2  ellipsis_0.3.1   xml2_1.2.0       assertthat_0.2.1
+[45] httr_1.4.0       rstudioapi_0.13  R6_2.4.0         nlme_3.1-139    
+[49] compiler_3.6.3  
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="ecosang/blog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/blog/r/tidyverse/2020/12/12/My-R-Tidyverse-note.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Sang woo Ham&#39;s personal website.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/ecosang" target="_blank" title="ecosang"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

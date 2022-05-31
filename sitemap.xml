@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://ecosang.github.io/blog/markdown/2020/01/14/test-markdown-post.html</loc>
-<lastmod>2020-01-14T00:00:00-06:00</lastmod>
+<loc>https://ecosang.github.io/blog/r/tidyverse/2020/12/12/My-R-Tidyverse-note.html</loc>
+<lastmod>2020-12-12T00:00:00-06:00</lastmod>
 </url>
 <url>
-<loc>https://ecosang.github.io/blog/jupyter/2020/02/20/test.html</loc>
-<lastmod>2020-02-20T00:00:00-06:00</lastmod>
+<loc>https://ecosang.github.io/blog/cheatsheet/pandas/python/2021/02/22/My-Python-Pandas-note.html</loc>
+<lastmod>2021-02-22T00:00:00-06:00</lastmod>
 </url>
 <url>
 <loc>https://ecosang.github.io/blog/about/</loc>
 </url>
 <url>
 <loc>https://ecosang.github.io/blog/</loc>
+</url>
+<url>
+<loc>https://ecosang.github.io/blog/research/</loc>
 </url>
 <url>
 <loc>https://ecosang.github.io/blog/search/</loc>
